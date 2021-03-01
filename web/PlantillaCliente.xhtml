@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./PlantillaBase.xhtml">
+
+            <ui:define name="top">
+                <H1 align="center"> GESTOR DE MUSICAS </H1>
+            </ui:define>
+
+            <ui:define name="left">
+                <IMG SRC="Imagenes/FIDLOGO.jpg" height="30%" width="100%"/>
+                <iframe src="index.xhtml" height="400px" width="150px"></iframe>
+            </ui:define>
+
+            <ui:define name="right">
+                <h2>Paginas para buscar musicas:</h2> 
+                <IMG SRC="Imagenes/YouTube.png" height="10%" width="30%"/> <a href="https://www.youtube.com">You tube</a><br/><br/>
+                <IMG SRC="Imagenes/Spotify.jpg" height="10%" width="30%"/> <a href="https://www.spotify.com">Spotify</a><br/><br/>
+                <IMG SRC="Imagenes/SoundCloud.png" height="10%" width="30%"/> <a href="https://soundcloud.com">SoundCloud</a><br/><br/>
+                <IMG SRC="Imagenes/Deezer.jpg" height="10%" width="30%"/> <a href="https://www.deezer.com">Deezer</a><br/><br/>
+                <IMG SRC="Imagenes/TuneIn.png" height="10%" width="30%"/> <a href="https://tunein.com">TuneIn</a><br/><br/>
+                <IMG SRC="Imagenes/MusicaOnline.jpg" height="10%" width="30%"/> <a href="http://ww12.musicaenmp3.us">MusicaOnline</a><br/>
+            </ui:define>
+
+            <ui:define name="content">
+                <iframe name="prin" height="500px" width="1130px"></iframe>>
+            </ui:define>
+
+            <ui:define name="bottom">
+                <IMG SRC="Imagenes/Ondas.jpg" height="120%" width="100%"></IMG>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

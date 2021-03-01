@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CantanteEditDlg" widgetVar="CantanteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCantanteTitle}">
+            <h:form id="CantanteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cantanteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCantanteLabel_idcantante}" for="idcantante" />
+                        <p:inputText id="idcantante" value="#{cantanteController.selected.idcantante}" title="#{bundle.EditCantanteTitle_idcantante}" required="true" requiredMessage="#{bundle.EditCantanteRequiredMessage_idcantante}"/>
+                        <p:outputLabel value="#{bundle.EditCantanteLabel_nombrecantante}" for="nombrecantante" />
+                        <p:inputText id="nombrecantante" value="#{cantanteController.selected.nombrecantante}" title="#{bundle.EditCantanteTitle_nombrecantante}" required="true" requiredMessage="#{bundle.EditCantanteRequiredMessage_nombrecantante}"/>
+                        <p:outputLabel value="#{bundle.EditCantanteLabel_nacionalidad}" for="nacionalidad" />
+                        <p:inputText id="nacionalidad" value="#{cantanteController.selected.nacionalidad}" title="#{bundle.EditCantanteTitle_nacionalidad}" required="true" requiredMessage="#{bundle.EditCantanteRequiredMessage_nacionalidad}"/>
+                        <p:outputLabel value="#{bundle.EditCantanteLabel_edad}" for="edad" />
+                        <p:inputText id="edad" value="#{cantanteController.selected.edad}" title="#{bundle.EditCantanteTitle_edad}" required="true" requiredMessage="#{bundle.EditCantanteRequiredMessage_edad}"/>
+                        <p:outputLabel value="#{bundle.EditCantanteLabel_nombrecancion}" for="nombrecancion" />
+                        <p:inputText id="nombrecancion" value="#{cantanteController.selected.nombrecancion}" title="#{bundle.EditCantanteTitle_nombrecancion}" required="true" requiredMessage="#{bundle.EditCantanteRequiredMessage_nombrecancion}"/>
+                        <p:outputLabel value="#{bundle.EditCantanteLabel_idcancion}" for="idcancion" />
+                        <p:selectOneMenu id="idcancion" value="#{cantanteController.selected.idcancion}" required="true" requiredMessage="#{bundle.EditCantanteRequiredMessage_idcancion}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cancionController.itemsAvailableSelectOne}"
+                                           var="idcancionItem"
+                                           itemValue="#{idcancionItem}" itemLabel="#{idcancionItem.genero}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cantanteController.update}" value="#{bundle.Save}" update="display,:CantanteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CantanteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CantanteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

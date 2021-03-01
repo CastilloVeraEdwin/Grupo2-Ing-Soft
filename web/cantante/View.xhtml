@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CantanteViewDlg" widgetVar="CantanteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCantanteTitle}">
+            <h:form id="CantanteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cantanteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCantanteLabel_idcantante}"/>
+                        <h:outputText value="#{cantanteController.selected.idcantante}" title="#{bundle.ViewCantanteTitle_idcantante}"/>
+                        <h:outputText value="#{bundle.ViewCantanteLabel_nombrecantante}"/>
+                        <h:outputText value="#{cantanteController.selected.nombrecantante}" title="#{bundle.ViewCantanteTitle_nombrecantante}"/>
+                        <h:outputText value="#{bundle.ViewCantanteLabel_nacionalidad}"/>
+                        <h:outputText value="#{cantanteController.selected.nacionalidad}" title="#{bundle.ViewCantanteTitle_nacionalidad}"/>
+                        <h:outputText value="#{bundle.ViewCantanteLabel_edad}"/>
+                        <h:outputText value="#{cantanteController.selected.edad}" title="#{bundle.ViewCantanteTitle_edad}"/>
+                        <h:outputText value="#{bundle.ViewCantanteLabel_nombrecancion}"/>
+                        <h:outputText value="#{cantanteController.selected.nombrecancion}" title="#{bundle.ViewCantanteTitle_nombrecancion}"/>
+                        <h:outputText value="#{bundle.ViewCantanteLabel_idcancion}"/>
+                        <h:outputText value="#{cantanteController.selected.idcancion.genero}" title="#{bundle.ViewCantanteTitle_idcancion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CantanteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
